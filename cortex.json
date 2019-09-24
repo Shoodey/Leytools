@@ -1,0 +1,140 @@
+[
+	// PHP
+	{
+		"name": "PHP",
+		"documentation": "https://www.php.net/manual/en",
+		"footnote": "PHP is a popular general-purpose scripting language that is especially suited to web development. Fast, flexible and pragmatic, PHP powers everything from your blog to the most popular websites in the world.",
+		"tags": ["programming language", "web"]
+	},
+	// PHP Frameworks
+	{
+		"name": "Laravel",
+		"documentation": "https://laravel.com/docs",
+		"footnote": "Laravel is a free, open-source PHP web framework and intended for the development of web applications following the model–view–controller architectural pattern.",
+		"tags": ["framework", "web", "mvc", "php"]
+	},
+	{
+		"name": "CodeIgniter",
+		"documentation": "https://www.codeigniter.com/docs",
+		"footnote": "CodeIgniter is an open-source software rapid development web framework, for use in building dynamic web sites with PHP.",
+		"tags": ["framework", "web", "mvc", "php"]
+	},
+	{
+		"name": "Symfony",
+		"documentation": "https://symfony.com/doc/current/index.html",
+		"footnote": "Symfony is a PHP web application framework and a set of reusable PHP components/libraries.",
+		"tags": ["framework", "web", "mvc", "php"]
+	},
+	{
+		"name": "CakePHP",
+		"documentation": "http://book.cakephp.org/",
+		"footnote": "CakePHP is an open-source web framework. It follows the model–view–controller approach and is written in PHP.",
+		"tags": ["framework", "web", "mvc", "php"]
+	},
+	// PHP CMS/Ecommerce
+	{
+		"name": "WordPress",
+		"documentation": "https://codex.wordpress.org/",
+		"footnote": "WordPress is a content management system based on PHP and MySQL that is usually used with the MySQL or MariaDB database servers but can also use the SQLite database engine. Features include a plugin architecture and a template system.",
+		"tags": ["cms", "web", "php"]
+	},
+	{
+		"name": "Typo3",
+		"documentation": "https://docs.typo3.org/",
+		"footnote": "TYPO3 is a free and open-source Web content management system written in PHP.",
+		"tags": ["cms", "web", "php"]
+	},
+	{
+		"name": "Drupal",
+		"documentation": "https://www.drupal.org/documentation",
+		"footnote": "Drupal is a free and open-source content management framework written in PHP.",
+		"tags": ["cms", "ecommerce", "web", "php"]
+	},
+	{
+		"name": "Joomla",
+		"documentation": "https://docs.joomla.org",
+		"footnote": "Joomla is a free and open-source content management system for publishing web content.",
+		"tags": ["cms", "ecommerce", "web", "php"]
+	},
+	{
+		"name": "WooCommerce",
+		"documentation": "https://docs.woocommerce.com/documentation/plugins/woocommerce/",
+		"footnote": "WooCommerce is an open-source e-commerce plugin for WordPress. It is designed for small to large-sized online merchants using WordPress.",
+		"tags": ["cms", "ecommerce", "web", "php"]
+	},
+	{
+		"name": "Magento",
+		"documentation": "https://devdocs.magento.com/",
+		"footnote": "Magento is an open-source e-commerce platform written in PHP.",
+		"tags": ["cms", "ecommerce", "web", "php"]
+	},
+	// Python
+	{
+		"name": "Python",
+		"documentation": "https://docs.python.org/",
+		"footnote": "Python is an interpreted, high-level, general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace.",
+		"tags": ["programming language"]
+	},
+	// Python frameworks
+	{
+		"name": "CherryPy",
+		"documentation": "https://docs.cherrypy.org/",
+		"footnote": "CherryPy is an object-oriented web application framework using the Python programming language.",
+		"tags": ["framework", "web", "python"]
+	},
+	{
+		"name": "Tornado",
+		"documentation": "https://www.tornadoweb.org/en/stable/guide/intro.html",
+		"footnote": "Tornado is a scalable, non-blocking web server and web application framework written in Python.",
+		"tags": ["framework", "asynchronous", "python"]
+	},
+	{
+		"name": "Bottle",
+		"documentation": "https://bottlepy.org/docs/dev/bottle-docs.pdf",
+		"footnote": "Bottle is a WSGI micro web-framework for the Python programming language. It is designed to be fast, simple and lightweight, and is distributed as a single file module with no dependencies other than the Python Standard Library.",
+		"tags": ["framework", "wsgi", "python"]
+	},
+	{
+		"name": "Flask",
+		"documentation": "https://flask.palletsprojects.com/",
+		"footnote": "Flask is a micro web framework written in Python. It is classified as a microframework because it does not require particular tools or libraries. ",
+		"tags": ["framework", "web", "python"]
+	},
+	// Python CMSs
+	{
+		"name": "",
+		"documentation": "",
+		"footnote": "",
+		"tags": []
+	},
+	{
+		"name": "",
+		"documentation": "",
+		"footnote": "",
+		"tags": []
+	},
+	{
+		"name": "",
+		"documentation": "",
+		"footnote": "",
+		"tags": []
+	},
+	{
+		"name": "",
+		"documentation": "",
+		"footnote": "",
+		"tags": []
+	},
+	{
+		"name": "",
+		"documentation": "",
+		"footnote": "",
+		"tags": []
+	},
+	{
+		"name": "",
+		"documentation": "",
+		"footnote": "",
+		"tags": []
+	},
+]
