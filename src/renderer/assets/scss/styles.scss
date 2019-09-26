@@ -4,6 +4,11 @@
 // Import Bootstrap
 @import '/~bootstrap/scss/bootstrap.scss';
 
+@import "./fontawesome/fontawesome.scss";
+@import "./fontawesome/solid.scss";
+@import "./fontawesome/brands.scss";
+
+
 // Import Custom SB Admin 2 Mixins and Components
 @import "mixins.scss";
 @import "global.scss";

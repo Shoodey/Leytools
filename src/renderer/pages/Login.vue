@@ -24,7 +24,7 @@
 								<template slot="suggestion" slot-scope="{ data, htmlText }">
 									<div class="d-flex bd-highlight">
 										<img class="rounded-circle bd-highlight align-self-center"
-										     :src="'https://api.adorable.io/avatars/40/' + data.name"
+										     :src="'https://api.adorable.io/avatars/40/' + data.initials"
 										     style="width: 40px; height: 40px;"/>
 										<span class="ml-4 bd-highlight align-self-center" v-html="htmlText"></span>
 										<small class="ml-auto bd-highlight align-self-center">
