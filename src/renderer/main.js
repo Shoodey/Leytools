@@ -4,6 +4,7 @@ import axios from 'axios'
 import App from './App'
 import router from './router'
 import store from './store'
+import firebase from "./database/firebase";
 
 import AuthLayout from './layouts/Auth'
 import DashboardLayout from './layouts/Dashboard'

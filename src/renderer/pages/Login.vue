@@ -1,6 +1,6 @@
 <template>
 	<div class="row">
-		<div class="col-lg-5 d-none d-lg-block bg-password-image"></div>
+		<div class="col-lg-5 d-none d-lg-block bg-login-image"></div>
 		<div class="col-lg-7 py-5">
 			<div class="p-5">
 				<div class="text-center">
@@ -12,27 +12,27 @@
 					<div class="form-group row">
 						<div class="col-sm-9 mb-4 mb-sm-0">
 							<div class="small mb-1 pl-3">Full name:</div>
-							<vue-bootstrap-typeahead
-									inputClass="form-control-user"
-									:minMatchingChars=0
-									:maxMatches=3
-									v-model="name"
-									:data="identities"
-									:serializer="s => s.name"
-									placeholder="Enter your name..."
-									@hit="setLocalIdentity($event)">
-								<template slot="suggestion" slot-scope="{ data, htmlText }">
-									<div class="d-flex bd-highlight">
-										<img class="rounded-circle bd-highlight align-self-center"
-										     :src="'https://api.adorable.io/avatars/40/' + data.initials"
-										     style="width: 40px; height: 40px;"/>
-										<span class="ml-4 bd-highlight align-self-center" v-html="htmlText"></span>
-										<small class="ml-auto bd-highlight align-self-center">
-											<strong>{{ data.initials }}</strong>
-										</small>
-									</div>
-								</template>
-							</vue-bootstrap-typeahead>
+<!--							<vue-bootstrap-typeahead-->
+<!--									inputClass="form-control-user"-->
+<!--									:minMatchingChars=0-->
+<!--									:maxMatches=3-->
+<!--									v-model="name"-->
+<!--									:data="identities"-->
+<!--									:serializer="s => s.name"-->
+<!--									placeholder="Enter your name..."-->
+<!--									@hit="setLocalIdentity($event)">-->
+<!--								<template slot="suggestion" slot-scope="{ data, htmlText }">-->
+<!--									<div class="d-flex bd-highlight">-->
+<!--										<img class="rounded-circle bd-highlight align-self-center"-->
+<!--										     :src="'https://api.adorable.io/avatars/40/' + data.initials"-->
+<!--										     style="width: 40px; height: 40px;"/>-->
+<!--										<span class="ml-4 bd-highlight align-self-center" v-html="htmlText"></span>-->
+<!--										<small class="ml-auto bd-highlight align-self-center">-->
+<!--											<strong>{{ data.initials }}</strong>-->
+<!--										</small>-->
+<!--									</div>-->
+<!--								</template>-->
+<!--							</vue-bootstrap-typeahead>-->
 						</div>
 						<div class="col-sm-3">
 							<div class="small mb-1 pl-3">Initials:</div>
@@ -50,7 +50,9 @@
 				</form>
 				<hr>
 				<div class="text-center">
-					<a class="small" href="#" @click="open('https://github.com/Shoodey/Cortex')">What is this
+					<router-link class="small" :to="{name: 'register'}">I don't have an account</router-link>
+					<br>
+					<a class="small" href="#" @click="open('https://github.com/Shoodey/Leytools')">What is this
 						anyway?</a>
 				</div>
 			</div>
@@ -59,7 +61,7 @@
 </template>
 
 <script>
-	import {some, isEmpty} from 'lodash'
+	import {some, isEmpty, isNull} from 'lodash'
 	import {mapGetters, mapActions} from 'vuex'
 	import VueBootstrapTypeahead from 'vue-bootstrap-typeahead/src/components/VueBootstrapTypeahead'
 
@@ -87,7 +89,7 @@
 		},
 
 		computed: {
-			...mapGetters(['identities']),
+			...mapGetters(['error']),
 		},
 
 		methods: {
@@ -97,23 +99,10 @@
 				this.$electron.shell.openExternal(link)
 			},
 
-			setLocalIdentity(identity) {
-				this.name = identity.name;
-				this.initials = identity.initials;
-			},
 
 			proceed() {
-				let identity = {name: this.name, initials: this.initials};
 
-				if(!some(identity, isEmpty)){
-					if (!some(this.identities, identity)) {
-						this.addIdentity(identity);
-					}
 
-					this.setIdentity(identity);
-
-					this.$router.push({ name: 'dashboard'})
-				}
 			}
 		}
 	}

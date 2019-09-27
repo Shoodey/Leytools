@@ -36,6 +36,16 @@ const router = new Router({
 			component: require('@/pages/Login').default
 		},
 		{
+			path: '/register',
+			name: 'register',
+			meta: {
+				layout: 'auth',
+				bodyClass: 'bg-gradient-primary',
+				middleware: guest
+			},
+			component: require('@/pages/Register').default
+		},
+		{
 			path: '*',
 			redirect: '/404'
 		}

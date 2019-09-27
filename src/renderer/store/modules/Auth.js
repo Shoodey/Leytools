@@ -1,7 +1,8 @@
-// Import any dependency (axios, sqlite...)
+import Firebase from 'firebase'
+
 const state = {
-	identity: {},
-	identities: [
+	user: {},
+	users: [
 		{
 			name: 'Ali EL AMRI',
 			initials: 'AEA'
@@ -17,37 +18,35 @@ const state = {
 	]
 };
 const getters = {
-	identity: (state) => state.identity,
-	identities: (state) => state.identities,
+	user: (state) => state.user,
+	users: (state) => state.users,
 };
 
 const actions = {
-	setIdentity({commit}, identity) {
-		commit('SET_IDENTITY', identity);
+	register({commit}, payload) {
+		Firebase.auth().createUserWithEmailAndPassword(
+			payload.email,
+			payload.password
+		).then(
+			credentials => {
+				// Firebase.database.collection('users').doc(credentials.user.uid).set({
+				// 	name: 'John Doe',
+				// 	initials: 'JD'
+				// });
+				commit('clearError')
+			}
+		).catch(
+			error => {
+				commit('setError', error)
+			}
+		)
 	},
-
-	addIdentity({commit}, identity) {
-		commit('ADD_IDENTITY', identity);
-	},
-
-	clearIdentity({commit}) {
-		commit('CLEAR_IDENTITY');
-	}
 };
 
 const mutations = {
-	ADD_IDENTITY(state, identity) {
-		state.identities.push(identity);
+	setUser(state, payload) {
+		state.user = payload;
 	},
-
-	SET_IDENTITY(state, identity) {
-		state.identity = identity;
-	},
-
-	CLEAR_IDENTITY(state) {
-		console.log('cleared');
-		state.identity = {};
-	}
 };
 
 export default {
