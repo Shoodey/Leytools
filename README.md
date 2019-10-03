@@ -17,6 +17,6 @@ yarn build
 
 ---
 
-This project is maintained by [Shoodey](https://github.com/Shoodey)
+This project is maintained by [Shoodey](https://alielamri.com/)
 
 Documentation about the original structure can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).

@@ -6,33 +6,35 @@
 				<div class="text-center">
 					<h1 class="h4 text-gray-900 mb-2">Registration</h1>
 					<br>
-					<p class="mb-4">Please enter your email address to start using the platform.</p>
+					<p class="mb-4">Please sign up to start using the platform.</p>
 				</div>
-				<form class="user py-3">
+				<form class="user py-3 needs-validation" novalidate @submit="checkForm">
 					<div class="row">
-						<div class="form-group">
-							<label class="small mb-1 pl-3">Email:</label>
-							<input type="email" class="form-control form-control-user" placeholder="jdoe@leyton.com"
-							       v-model="email" required>
-							<small class="form-text text-danger">
-								Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+						<div class="form-group col-6">
+							<label for="email" class="small mb-1 pl-3">Email:</label>
+							<input id="email" type="email" class="form-control form-control-user"
+							       placeholder="jdoe@leyton.com"
+							       v-model="password" required>
+							<small class="invalid-feedback">
+								Email error message
 							</small>
 						</div>
-						<div class="form-group">
-							<label class="small mb-1 pl-3">Password:</label>
-							<input type="password" class="form-control form-control-user" placeholder="supersecret"
+						<div class="form-group col-6">
+							<label for="password" class="small mb-1 pl-3">Password:</label>
+							<input id="password" type="password" class="form-control form-control-user"
+							       placeholder="super-duper-password"
 							       v-model="password" required>
-							<small class="form-text text-danger">
-								Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+							<small class="invalid-feedback">
+								Password error message
 							</small>
 						</div>
 					</div>
 
 					<div class="row justify-content-center">
 						<div class="col-sm-12">
-							<a href="#" @click="proceed" class="btn btn-primary btn-user btn-block  align-self-center">
+							<button type="submit" class="btn btn-primary btn-user btn-block align-self-center">
 								Proceed
-							</a>
+							</button>
 						</div>
 					</div>
 				</form>
@@ -49,35 +51,20 @@
 </template>
 
 <script>
-	import {isNull} from 'lodash'
 	import {mapGetters, mapActions} from 'vuex'
-	import VueBootstrapTypeahead from 'vue-bootstrap-typeahead/src/components/VueBootstrapTypeahead'
 
 	export default {
 		name: 'login',
 
 		data() {
 			return {
-				email: null,
-				password: null,
+				email: '',
+				password: ''
 			}
 		},
 
-		created(){
-			window.addEventListener('load', function() {
-				// Fetch all the forms we want to apply custom Bootstrap validation styles to
-				var forms = document.getElementsByClassName('needs-validation');
-				// Loop over them and prevent submission
-				var validation = Array.prototype.filter.call(forms, function(form) {
-					form.addEventListener('submit', function(event) {
-						if (form.checkValidity() === false) {
-							event.preventDefault();
-							event.stopPropagation();
-						}
-						form.classList.add('was-validated');
-					}, false);
-				});
-			}, false);
+		created() {
+
 		},
 
 		computed: {
@@ -91,17 +78,25 @@
 				this.$electron.shell.openExternal(link)
 			},
 
+			checkForm(event) {
+				// event.preventDefault();
+				// event.target.classList.add('was-validated');
+				this.$router.push({name: 'dashboard'})
+			},
+
+
 			proceed() {
-				let credentials = {name: this.name, initials: this.initials};
+				let credentials = {email: this.email, password: Math.random().toString(36).slice(2)};
 
 				this.register(credentials);
 
-				if (isNull(this.error)) {
+				if (this.error) {
 					// 	this.setIdentity(identity);
 					//
 					// 	this.$router.push({ name: 'dashboard'})
-				}else{
-					// console.log(this.error)
+					console.log("error", this.error)
+				} else {
+					console.log("all good", this.error)
 				}
 
 			}

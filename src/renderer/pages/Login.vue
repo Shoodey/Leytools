@@ -8,10 +8,10 @@
 					<p class="mb-4">Please enter your name and initial.<br> This helps us track issues and
 						contributions!</p>
 				</div>
-				<form class="user py-3">
-					<div class="form-group row">
-						<div class="col-sm-9 mb-4 mb-sm-0">
-							<div class="small mb-1 pl-3">Full name:</div>
+<!--				<form class="user py-3">-->
+<!--					<div class="form-group row">-->
+<!--						<div class="col-sm-9 mb-4 mb-sm-0">-->
+<!--							<div class="small mb-1 pl-3">Full name:</div>-->
 <!--							<vue-bootstrap-typeahead-->
 <!--									inputClass="form-control-user"-->
 <!--									:minMatchingChars=0-->
@@ -33,18 +33,48 @@
 <!--									</div>-->
 <!--								</template>-->
 <!--							</vue-bootstrap-typeahead>-->
+<!--						</div>-->
+<!--						<div class="col-sm-3">-->
+<!--							<div class="small mb-1 pl-3">Initials:</div>-->
+<!--							<input type="text" class="form-control form-control-user" placeholder="JD"-->
+<!--							       v-model="initials">-->
+<!--						</div>-->
+<!--					</div>-->
+<!--					<div class="row justify-content-center">-->
+<!--						<div class="col-sm-12">-->
+<!--							<a href="#" @click="proceed" class="btn btn-primary btn-user btn-block  align-self-center">-->
+<!--								Proceed-->
+<!--							</a>-->
+<!--						</div>-->
+<!--					</div>-->
+<!--				</form>-->
+				<form class="user py-3 needs-validation" novalidate @submit="checkForm">
+					<div class="row">
+						<div class="form-group col-6">
+							<label for="email" class="small mb-1 pl-3">Email:</label>
+							<input id="email" type="email" class="form-control form-control-user"
+							       placeholder="jdoe@leyton.com"
+							       v-model="password" required>
+							<small class="invalid-feedback">
+								Email error message
+							</small>
 						</div>
-						<div class="col-sm-3">
-							<div class="small mb-1 pl-3">Initials:</div>
-							<input type="text" class="form-control form-control-user" placeholder="JD"
-							       v-model="initials">
+						<div class="form-group col-6">
+							<label for="password" class="small mb-1 pl-3">Password:</label>
+							<input id="password" type="password" class="form-control form-control-user"
+							       placeholder="super-duper-password"
+							       v-model="password" required>
+							<small class="invalid-feedback">
+								Password error message
+							</small>
 						</div>
 					</div>
+
 					<div class="row justify-content-center">
 						<div class="col-sm-12">
-							<a href="#" @click="proceed" class="btn btn-primary btn-user btn-block  align-self-center">
+							<button type="submit" class="btn btn-primary btn-user btn-block align-self-center">
 								Proceed
-							</a>
+							</button>
 						</div>
 					</div>
 				</form>
@@ -74,18 +104,18 @@
 
 		data() {
 			return {
-				name: null,
-				initials: null,
+				email: null,
+				password: null,
 			}
 		},
 
 		watch: {
-			name() {
-				// this.initials = toUpper(join(map(split(this.name, ' '), head), ''));
-				if (this.name) {
-					this.initials = this.name.replace(/[^a-zA-Z- ]/g, "").match(/\b\w/g).join('').toUpperCase()
-				}
-			}
+			// name() {
+			// 	// this.initials = toUpper(join(map(split(this.name, ' '), head), ''));
+			// 	if (this.name) {
+			// 		this.initials = this.name.replace(/[^a-zA-Z- ]/g, "").match(/\b\w/g).join('').toUpperCase()
+			// 	}
+			// }
 		},
 
 		computed: {
@@ -93,15 +123,19 @@
 		},
 
 		methods: {
-			...mapActions(['addIdentity', 'setIdentity']),
+			// ...mapActions(['addIdentity', 'setIdentity']),
 
 			open(link) {
 				this.$electron.shell.openExternal(link)
 			},
 
+			checkForm(event) {
+				// event.preventDefault();
+				// event.target.classList.add('was-validated');
+				this.$router.push({name: 'dashboard'})
+			},
 
 			proceed() {
-
 
 			}
 		}

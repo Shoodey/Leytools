@@ -180,6 +180,15 @@
 	export default {
 		name: 'navbar',
 
+		data() {
+			return {
+				identity: {
+					name: 'Ali EL AMRI',
+					initials: 'AEA'
+				}
+			}
+		},
+
 		created() {
 			// Toggle the side navigation
 			$(document).on('click', '#sidebarToggleTop', function (e) {
@@ -193,14 +202,14 @@
 		},
 
 		computed: {
-			...mapGetters(['identity'])
+			// ...mapGetters(['identity'])
 		},
 
 		methods: {
-			...mapActions(['clearIdentity']),
+			// ...mapActions(['clearIdentity']),
 
 			logout(){
-				this.clearIdentity();
+				// this.clearIdentity();
 				this.$router.push({name: 'login'})
 			}
 		}

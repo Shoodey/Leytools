@@ -9,19 +9,19 @@ const router = new Router({
 	routes: [
 		{
 			path: '/',
-			// redirect: '/login'
-			name: 'landing',
-			meta: {
-				middleware: auth
-			},
-			component: require('@/pages/Landing').default
+			redirect: '/dashboard',
+			// name: 'landing',
+			// meta: {
+			// 	// middleware: auth
+			// },
+			// component: require('@/pages/Landing').default
 		},
 		{
 			path: '/dashboard',
 			name: 'dashboard',
 			meta: {
 				bodyClass: 'page-top',
-				middleware: auth
+				// middleware: auth
 			},
 			component: require('@/pages/Dashboard').default
 		},
@@ -31,7 +31,7 @@ const router = new Router({
 			meta: {
 				layout: 'auth',
 				bodyClass: 'bg-gradient-primary',
-				middleware: guest
+				// middleware: guest
 			},
 			component: require('@/pages/Login').default
 		},
@@ -41,13 +41,18 @@ const router = new Router({
 			meta: {
 				layout: 'auth',
 				bodyClass: 'bg-gradient-primary',
-				middleware: guest
+				// middleware: guest
 			},
 			component: require('@/pages/Register').default
 		},
 		{
 			path: '*',
-			redirect: '/404'
+			name: 'page-not-found',
+			meta: {
+				bodyClass: 'page-top',
+				// middleware: guest
+			},
+			component: require('@/pages/PageNotFound').default
 		}
 	]
 });

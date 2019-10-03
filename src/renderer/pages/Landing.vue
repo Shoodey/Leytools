@@ -1,8 +1,8 @@
 <template>
-	<div class="container-fluid" style="height: 5000px">
+	<div class="container-fluid">
 		<router-link :to="{ name: 'dashboard'}">Dashboard</router-link>
 		<router-link :to="{ name: 'login'}">Login</router-link>
-		<a href="#" @click="clearIdentity">Logout</a>	</div>
+	</div>
 </template>
 
 <script>
@@ -14,7 +14,7 @@
 		components: {},
 
 		methods: {
-			...mapActions(['clearIdentity']),
+			// ...mapActions(['clearIdentity']),
 		}
 	}
 </script>

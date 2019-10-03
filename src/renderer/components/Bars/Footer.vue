@@ -8,7 +8,7 @@
 					and
 					<font-awesome-icon :icon="['fas', 'coffee']"/>
 					by
-					<a href="#" @click="open('https://github.com/Shoodey')">Ali EL AMRI</a>
+					<a href="#" @click="open('https://alielamri.com/')">Ali EL AMRI</a>
 				</span>
 			</div>
 		</div>
